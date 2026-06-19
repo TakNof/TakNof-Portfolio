@@ -1,0 +1,280 @@
+{
+    "projects":[
+        {
+          "id":"phaser-doom",
+          "title":"Doom recreation in Phaser 3",
+          "date": "Apr 25th 2023",
+          "image": "/src/assets/img/Survival Doom.png",
+          "video": "/src/assets/vid/Survival Doom.mp4",
+          "category":"Game Dev",
+          "status":"Paused",
+          "tech":["JavaScript", "Phaser 3", "OOP", "FPS", "AI", "Maths", "Finite State Machine"],
+          "shortDesc":"A recreation of the original Doom made by scratch using Phaser 3, mathematics and sweat.",
+          "info": {
+            "generalInfo":{
+              "desc": "After being amazed with the origin story of the development of the original Doom and starting being passionate about early days of graphics programming, I decided to recreate the original Doom using Phaser 3. The project is still ongoing but I have made a lot of progress recreating the raycasting engine, the level system, the enemies AI and the weapons mechanics.",
+              "image": ""
+            },
+            "detailedInfo" : [
+              {
+                "title": "Starting the project, creation of the 2D world.",
+                "paragraphs": [
+                  "After investigating about how the original Doom was done, I realized that I wanted to start with something a little bit easier. So I decided to recreate the Wolfenstein 3D system, which uses a simple raycast system."
+                ]
+              },
+              {
+                "title": "",
+                "paragraphs": [
+
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id":"opbx",
+          "title":"Operation Bloody Xmas in Phaser 3",
+          "date": "Feb 18th 2024",
+          "image": "/src/assets/img/OPBX.png",
+          "video": "",
+          "category":"Game Dev",
+          "status":"Paused",
+          "tech":["JavaScript", "Phaser 3", "OOP", "Metroidvania", "AI", "PixelArt", "Music Composition", "Finite State Machine"],
+          "shortDesc":"My original 2D pixelart game with a different aproach from the classical christmas story. Got to finish it some day..."
+        },
+        {
+          "id":"souls-like-game",
+          "title":"Souls-Like Game Project",
+          "date": "Jan 10th 2025",
+          "image": "/src/assets/img/Souls-Like Game.png",
+          "video": "/src/assets/vid/Souls-Like Game.mp4",
+          "category":"Game Dev",
+          "status":"Paused",
+          "tech":["Unity", "C#", "OOP", "Team Leadership", "Game Mechanics"],
+          "shortDesc":"A really ambitious project where I was the main leader of a small dev group, there's a lot to learn so we paused it and we will resume it when we are ready."
+        },
+        {
+          "id":"archer-game",
+          "title":"Archer Game",
+          "date": "Feb 4th 2025",
+          "image": "/src/assets/img/Archer Game.png",
+          "video": "/src/assets/vid/Archer Game.mp4",
+          "category":"Game Dev",
+          "status":"Paused",
+          "tech":["Unity", "C#", "OOP", "TPS", "Archer Mechanics", "Game Mechanics", "AI", "Level Design"],
+          "shortDesc":"A project where I was exploring the archer mechanics and the level design. Achieving a believable environment was fun challenge."
+        },
+        {
+          "id":"age-of-colonies",
+          "title":"Age of Colonies",
+          "date": "Apr 29th 2025",
+          "image": "/src/assets/img/Age of Colonies.png",
+          "video": "/src/assets/vid/Age of Colonies.mp4",
+          "category":"Game Dev",
+          "status":"Paused",
+          "tech":["Unity", "C#", "RTS", "Game Mechanics", "AI", "Neural Networks", "Level Design"],
+          "shortDesc":"One of my greatest projects, an RTS game of ants with an AI system that plays the game by itself using neural networks, inspired by the best RTS game of all time: Age of Empires."
+        },
+        {
+          "id":"automatic-car-game",
+          "title":"Automatic Car Game",
+          "date": "Mar 25th 2025",
+          "image": "/src/assets/img/Automatic Car Game.png",
+          "video": "/src/assets/vid/Automatic Car Game.mp4",
+          "category":"Game Dev",
+          "status":"Paused",
+          "tech":["Unity", "C#", "Racing Game", "Game Mechanics", "AI", "Neural Networks"],
+          "shortDesc":"A game test where I was supposed to make a car that drives by itself using neural networks, it was a fun challenge and I learned a lot about weights and biases."
+        },
+        {
+          "id":"zombies-game",
+          "title":"Zombies game",
+          "date": "Apr 29th 2024",
+          "image": "/src/assets/img/Zombies Game.png",
+          "video": "/src/assets/vid/Zombies Game.mp4",
+          "category":"Game Dev",
+          "status":"Paused",
+          "tech":["Unity", "C#", "FPS", "Game Mechanics", "AI"],
+          "shortDesc":"My first FPS game made in Unity, where I learned a lot about the mechanics of a shooter game and the management of the weapons and projectiles."
+        },
+        {
+          "id":"car-game",
+          "title":"Drakoron Quest",
+          "date": "Feb 8th 2024",
+          "image": "/src/assets/img/Drakoron Quest.png",
+          "video": "/src/assets/vid/Drakoron Quest.mp4",
+          "category":"Game Dev",
+          "status":"Paused",
+          "tech":["Unity", "C#", "Racing Game"],
+          "shortDesc":"My first conduction game ever, I implemented a functional gearbox with clutch and all the mechanics of a car. The idea of an arcade racing game with a pursuing dragon could be fun."
+        },
+        {
+          "id":"disaster-simulator",
+          "title":"VR Disaster Simulators",
+          "date": "August 2024 - December 2024",
+          "image": "/src/assets/img/VR Disaster Simulators.png",
+          "video": "/src/assets/vid/VR Disaster Simulators.mp4",
+          "category":"Game Dev",
+          "status":"Finished",
+          "tech":["Unity", "C#", "ArcGIS SDK Unity", "VR", "Meta Quest 2 & 3"],
+          "shortDesc":"This were demos made for ESRI using their ArcGIS SDK for Unity and the Meta Quest 2 & 3, the goal was to create different disaster simulators in VR using real world data from ArcGIS."
+        },
+        {
+          "id":"billiard-game",
+          "title":"Billiard Game",
+          "date": "Aug 1st 2023",
+          "image": "/src/assets/img/Billiard Game.png",
+          "video": "/src/assets/vid/Billiard Game.mp4",
+          "category":"Game Dev",
+          "status":"Finished",
+          "tech":["JavaScript", "ThreeJS", "Physics Library", "Physics", "Maths"],
+          "shortDesc":"I made a little billiard game using ThreeJS and my own physics library, not perfect but anyway challenging and loved to find solutions to the problems."
+        },
+        {
+          "id":"shooter-vr-threejs",
+          "title":"Shooter VR ThreeJS",
+          "date": "Nov 7th 2023",
+          "image": "/src/assets/img/VR Shooter.png",
+          "video": "/src/assets/vid/VR Shooter.mp4",
+          "category":"Game Dev",
+          "status":"Stopped",
+          "tech":["JavaScript", "ThreeJS", "VR", "VR Box"],
+          "shortDesc":"A very simple VR shooter made with ThreeJS, it can be played with a VR Box and a smartphone or with a regular screen and mouse."
+        },
+        {
+          "id":"akali-animation",
+          "title":"Akali Parkour Animation",
+          "date": "Sep 5th 2024",
+          "image": "/src/assets/img/Akali Animation.png",
+          "video": "/src/assets/vid/Akali Animation.mp4",
+          "category":"Animation",
+          "status":"Finished",
+          "tech":["Autodesk Maya", "Rendering", "Acrobatics"],
+          "shortDesc":"A short animation of Akali from League of Legends doing some parkour moves. Everything was animated by hand."
+        },
+        {
+          "id":"stormtrooper-animation",
+          "title":"Stormtrooper Animation",
+          "date": "Aug 14th 2024",
+          "image": "/src/assets/img/Stormtrooper Animation.png",
+          "video": "/src/assets/vid/Stormtrooper Animation.mp4",
+          "category":"Animation",
+          "status":"Finished",
+          "tech":["Autodesk Maya", "Rendering", "Lighting", "Self-Reference", "Tactical Movement"],
+          "shortDesc":"A short animation of an Stormtrooper from Star Wars clearing a Room. I used myself as reference for the animation. Applied lighting to enhance a lot the atmosphere."
+        },
+        {
+          "id":"lipsync-zelda-animation",
+          "title":"Lipsync Zelda Animation",
+          "date": "Oct 7th 2024",
+          "image": "",
+          "video": "",
+          "category":"Animation",
+          "status":"Finished",
+          "tech":["Autodesk Maya"],
+          "shortDesc":""
+        },
+        {
+          "id":"zelda-run-animation",
+          "title":"Zelda Run Animation",
+          "date": "Aug 28th 2024",
+          "image": "",
+          "video": "",
+          "category":"Animation",
+          "status":"Finished",
+          "tech":["Autodesk Maya"],
+          "shortDesc":""
+        },
+        {
+          "id":"sleepy-zelda-animation",
+          "title":"Sleepy Zelda Animation",
+          "date": "Sep 3rd 2024",
+          "image": "",
+          "video": "",
+          "category":"Animation",
+          "status":"Finished",
+          "tech":["Autodesk Maya"],
+          "shortDesc":""
+        },
+        {
+          "id":"animation-bag",
+          "title":"animation-bag",
+          "date": "Aug 14th 2024",
+          "image": "",
+          "video": "",
+          "category":"Animation",
+          "status":"Finished",
+          "tech":["Autodesk Maya"],
+          "shortDesc":""
+        },
+        {
+          "id":"animator-tool",
+          "title":"animator tool Unity",
+          "date": "2025",
+          "image": "",
+          "video": "",
+          "category":"Unity Tools",
+          "status":"Finished",
+          "tech":["Autodesk Maya"],
+          "shortDesc":""
+        }
+        
+    ],
+
+    "proyects": [
+    {
+      "name": "Recreación de Doom en Phaser Js-"
+    },
+    {
+      "name": "Operation Bloody Xmas-"
+    },
+    {
+      "name": "Shooter VR Three JS-"
+    },
+    {
+      "name": "Billar Threejs-"
+    },
+    {
+      "name": "Proyecto Souls-Like-"
+    },
+    {
+      "name": "Age of Colonies-"
+    },
+    {
+      "name": "Conducción automática IA-"
+    },
+    {
+      "name": "Juego de Zombies en Unity-"
+    },
+    {
+      "name": "Juego de arquero en Unity-"
+    },
+    {
+      "name": "Juego de carros en Unity-"
+    },
+    {
+      "name": "Sistema de desastres VR ESRI-"
+    },
+    {
+      "name": "Animación 3D 1 Saco-"
+    },
+    {
+      "name": "Animación 3D 2 Akali-"
+    },
+    {
+      "name": "Animación StormTrooper-"
+    },
+    {
+      "name": "Animación 3D 3 Zelda correr-"
+    },
+    {
+      "name": "Animación 3D 4 Zelda dormida-"
+    },
+    {
+      "name": "Animación 3D 5 Zelda lipsync-"
+    }, 
+    {
+      "name": "Animación final Zelda"
+    }
+  ]
+}
