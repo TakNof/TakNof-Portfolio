@@ -11,8 +11,8 @@
           "tech":["JavaScript", "Phaser 3", "OOP", "FPS", "AI", "Maths", "Finite State Machine"],
           "shortDesc":"A recreation of the original Doom made by scratch using Phaser 3, mathematics and sweat.",
           "info": {
+            "desc": "After being amazed with the origin story of the development of the original Doom and starting being passionate about early days of graphics programming, I decided to recreate the original Doom using Phaser 3. The project is still ongoing but I have made a lot of progress recreating the raycasting engine, the level system, the enemies AI and the weapons mechanics.",
             "generalInfo":{
-              "desc": "After being amazed with the origin story of the development of the original Doom and starting being passionate about early days of graphics programming, I decided to recreate the original Doom using Phaser 3. The project is still ongoing but I have made a lot of progress recreating the raycasting engine, the level system, the enemies AI and the weapons mechanics.",
               "image": ""
             },
             "detailedInfo" : [

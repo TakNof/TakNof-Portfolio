@@ -34,7 +34,7 @@ class ProjectDetail(Resource):
 @categoriesDto.route('/')
 class CategoryList(Resource):
 
-    categoriesDto.marshal_list_with(CategoriesDto.category_response)
+    @categoriesDto.marshal_list_with(CategoriesDto.category_response)
     def get(self):
         categories = CategoryQueries.get_all_categories()
         return categories

@@ -56,9 +56,15 @@ onMounted(() =>{
 })
 
 async function loadCategories(){
-  const response = await api.get(`${endpoints.PROJECTS}`)
+  const response = await api.get(`${endpoints.CATEGORIES}`)
   if(response.status == 200){
-    console.log("These are the categories " + response.data);
+    let categories = response.data;
+    for(let category in categories){
+      console.log(category);
+      // console.log(`id: ${category.id} , name: ${category.name}`);
+    }
+
+    // console.log(categories)
   }
 }
 </script>

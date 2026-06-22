@@ -6,6 +6,12 @@ import os
 
 from extensions import db, api
 from controllers.project_controller import projectsDto as project_ns
+from controllers.project_controller import categoriesDto as category_ns
+
+def load_ns(*args):
+    for arg in args:
+        api.add_namespace(arg)
+        
 
 def create_app():
     flask_env = os.getenv('FLASK_ENV', 'development')
@@ -27,7 +33,7 @@ def create_app():
 
     db.init_app(app)
     api.init_app(app)
-    api.add_namespace(project_ns)
+    load_ns(project_ns, category_ns)
     import models 
 
     with app.app_context():
