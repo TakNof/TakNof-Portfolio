@@ -82,10 +82,8 @@ import { ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 
 import Header from '@/components/general/Header.vue'
-import TechItem from '@/components/specific/TechItem.vue' // NOTE: You need to create this as a separate file in Vue!
 
 import projectsData from '@/scripts/projectsData.json'
-import '@/ProjectDetail.css' // You can import CSS exactly like React
 
 const route = useRoute()
 const router = useRouter()
