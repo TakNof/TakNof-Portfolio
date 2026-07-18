@@ -1,23 +1,23 @@
 <template>
   <!-- In Vue 3, fragments (multiple root elements) are supported just like React's <> -->
-  <!-- <Header />
-  <Hero /> -->
+  <Header/>
+  <Hero />
   
   <!-- 
     Notice the data binding (:) for variables.
     Instead of passing the setter function, we listen for a custom event (@update-category) 
   -->
-  <!-- <Projects
+  <Projects
     :projects="projectsData"
     :categories="categories" 
     :activeCategory="activeCategory"
     @update-category="setActiveCategory"
-  /> -->
+  />
   
-  <!-- <About />
+  <About />
   <Skills />
   <Contact />
-  <Footer /> -->
+  <Footer/>
 
 </template>
 

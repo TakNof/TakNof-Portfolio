@@ -1,0 +1,86 @@
+// SCSS Mixins
+@use "variables" as *;
+
+// Media queries
+@mixin mobile {
+  @media (max-width: #{$breakpoint-mobile}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: #{$breakpoint-tablet}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (max-width: #{$breakpoint-desktop}) {
+    @content;
+  }
+}
+
+@mixin widescreen {
+  @media (max-width: #{$breakpoint-widescreen}) {
+    @content;
+  }
+}
+
+// Glassmorphism
+@mixin glass-panel($bg: $bg-card, $border: $border-color, $blur: 12px) {
+  background: $bg;
+  backdrop-filter: blur($blur);
+  -webkit-backdrop-filter: blur($blur);
+  border: 1px solid $border;
+  box-shadow: $shadow-md;
+}
+
+// Text Gradient
+@mixin text-gradient($start-color, $end-color) {
+  background: linear-gradient(135deg, $start-color, $end-color);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+// Flex Center
+@mixin flex-center($dir: row, $gap: 0) {
+  display: flex;
+  flex-direction: $dir;
+  align-items: center;
+  justify-content: center;
+  gap: $gap;
+}
+
+// Glow effects
+@mixin card-glow($glow-color) {
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.7), 0 0 15px rgba($glow-color, 0.15);
+  border-color: rgba($glow-color, 0.3);
+  
+  &:hover {
+    box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.8), 0 0 25px rgba($glow-color, 0.4);
+    border-color: rgba($glow-color, 0.7);
+  }
+}
+
+// Scrollbar styling
+@mixin custom-scrollbar {
+  &::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $bg-main;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: lighten($bg-main, 10%);
+    border-radius: $border-radius-full;
+    border: 2px solid $bg-main;
+
+    &:hover {
+      background: lighten($bg-main, 20%);
+    }
+  }
+}

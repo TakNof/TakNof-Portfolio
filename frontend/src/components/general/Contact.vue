@@ -1,8 +1,12 @@
 <template>
   <section id="contact-me" class="section">
+    <div class="section-title">
+      <h2>Let's Work Together!</h2>
+      <div class="title-line"></div>
+    </div>
+    
     <div class="contact-content">
-      <h2>Let's work together!</h2>
-      <p>
+      <p class="contact-subtitle">
         Do you have a project in mind? I'd love to collaborate with you to
         create extraordinary digital experiences that make a difference.
       </p>
@@ -75,6 +79,106 @@ const submitForm = () => {
 }
 </script>
 
-<style scoped>
-/* Add your form styles here */
+<style lang="scss" scoped>
+.contact-content {
+  max-width: 650px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.contact-subtitle {
+  text-align: center;
+  color: $text-secondary;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 3rem;
+}
+
+.contact-form {
+  @include glass-panel($bg-card, $border-color, 16px);
+  padding: 3rem;
+  border-radius: $border-radius-lg;
+  box-shadow: $shadow-lg;
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+
+  @include mobile {
+    padding: 1.5rem;
+  }
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: 0.5rem;
+}
+
+label {
+  font-family: $font-heading;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: $text-primary;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+input, textarea {
+  background: rgba(255, 255, 255, 0.015);
+  border: 1px solid $border-color;
+  border-radius: $border-radius-md;
+  padding: 0.85rem 1.1rem;
+  color: $text-primary;
+  font-family: $font-sans;
+  font-size: 0.95rem;
+  transition: $transition-normal;
+  width: 100%;
+  box-sizing: border-box;
+  
+  &::placeholder {
+    color: $text-muted;
+  }
+  
+  &:focus {
+    outline: none;
+    border-color: $color-dev;
+    box-shadow: 0 0 0 3px rgba($color-dev, 0.15);
+    background: rgba(255, 255, 255, 0.04);
+  }
+}
+
+textarea {
+  resize: vertical;
+}
+
+.submit-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 1rem;
+  font-family: $font-heading;
+  font-size: 1rem;
+  font-weight: 700;
+  border-radius: $border-radius-md;
+  border: none;
+  background: linear-gradient(135deg, $color-dev, $color-art);
+  color: white;
+  cursor: pointer;
+  transition: $transition-normal;
+  box-shadow: 0 4px 15px rgba($color-dev, 0.25);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  
+  &:hover {
+    background: linear-gradient(135deg, lighten($color-dev, 4%), lighten($color-art, 4%));
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba($color-dev, 0.4);
+  }
+  
+  &:active {
+    transform: translateY(0);
+  }
+}
 </style>

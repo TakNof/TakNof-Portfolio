@@ -36,6 +36,46 @@ defineProps({
 defineEmits(['update-category'])
 </script>
 
-<style scoped>
-/* Scoped styles for your categories navigation go here */
+<style lang="scss" scoped>
+.project-categories-nav {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+
+.project-categories-grid {
+  display: flex;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid $border-color;
+  padding: 0.4rem;
+  border-radius: $border-radius-full;
+  flex-wrap: wrap;
+  justify-content: center;
+  backdrop-filter: blur(8px);
+}
+
+.category-button {
+  font-family: $font-heading;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.6rem 1.4rem;
+  border-radius: $border-radius-full;
+  border: none;
+  background: transparent;
+  color: $text-secondary;
+  cursor: pointer;
+  transition: $transition-normal;
+  
+  &:hover {
+    color: $text-primary;
+    background: rgba(255, 255, 255, 0.03);
+  }
+  
+  &.active-category {
+    background: linear-gradient(135deg, $color-dev, $color-art);
+    color: white;
+    box-shadow: 0 4px 15px rgba($color-dev, 0.25);
+  }
+}
 </style>

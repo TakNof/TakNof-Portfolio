@@ -1,12 +1,10 @@
 <template>
   <section id="projects" class="section">
-    <h2>Projects</h2>
+    <div class="section-title animate-on-scroll">
+      <h2>Featured Projects</h2>
+      <div class="title-line"></div>
+    </div>
     
-    <!-- 
-      We pass down the categories and activeCategory.
-      When ProjectCategories emits an update, we capture it and re-emit it 
-      up to Home.vue using Vue's built-in $emit function.
-    -->
     <ProjectCategories 
       :categories="categories" 
       :activeCategory="activeCategory" 
@@ -14,21 +12,14 @@
     />
     
     <div class="projects-showcase">
-      <h2>{{ activeCategory }}</h2>
+      <h3 class="category-title">{{ activeCategory }}</h3>
       
-      <!-- Dynamic class binding: 'fade-in-up' is applied only if animate is true -->
-      <div class="projects-grid" :class="{ 'fade-in-up': animate }">
-        
-        <!-- 
-          v-bind="project" works EXACTLY like {...project} in React.
-          It spreads all the keys of the object as individual props! 
-        -->
+      <div class="projects-grid" :class="{ 'fade-out-in': animate }">
         <ProjectCard 
           v-for="(project, i) in filteredProjects" 
           :key="project.id || i" 
-          v-bind="project" 
+          :project="project" 
         />
-        
       </div>
     </div>
   </section>
@@ -77,3 +68,38 @@ watch(() => props.activeCategory, () => {
   }, 500)
 })
 </script>
+
+<style lang="scss" scoped>
+.projects-showcase {
+  margin-top: 3rem;
+}
+
+.category-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: $text-secondary;
+  margin-bottom: 2rem;
+  text-align: left;
+  border-left: 3px solid $color-dev;
+  padding-left: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 2.5rem;
+  transition: opacity 0.25s ease-out, transform 0.25s ease-out;
+  
+  &.fade-out-in {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+</style>

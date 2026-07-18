@@ -1,6 +1,10 @@
 <template>
   <section id="skills" class="section">
-    <h2>Skills</h2>
+    <div class="section-title">
+      <h2>My Skills</h2>
+      <div class="title-line"></div>
+    </div>
+    
     <div class="skills-grid">
       
       <!-- 
@@ -57,6 +61,20 @@ const skills = [
 ]
 </script>
 
-<style scoped>
-/* Grid layout styles can go here */
+<style lang="scss" scoped>
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+  
+  @include tablet {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+}
 </style>

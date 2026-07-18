@@ -1,0 +1,52 @@
+// Design System Tokens (SCSS Variables)
+
+// Fonts
+$font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+$font-heading: 'Outfit', system-ui, -apple-system, sans-serif;
+$font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+// Colors - Obsidian & Neon Theme
+$bg-main: #0a0b0e;
+$bg-card: rgba(16, 18, 26, 0.7);
+$bg-card-hover: rgba(22, 25, 37, 0.85);
+$bg-nav: rgba(10, 11, 14, 0.8);
+$bg-code: #161822;
+
+// Text Colors
+$text-primary: #f3f4f6;
+$text-secondary: #a0aec0;
+$text-muted: #718096;
+$text-glow: #ffffff;
+
+// Accent & Brand Colors
+$color-dev: #8b5cf6;       // Electric Violet
+$color-art: #06b6d4;       // Neon Cyan
+$color-creativity: #ec4899; // Magenta
+
+// Borders
+$border-color: rgba(255, 255, 255, 0.08);
+$border-color-hover: rgba(139, 92, 246, 0.3);
+$border-radius-sm: 8px;
+$border-radius-md: 12px;
+$border-radius-lg: 20px;
+$border-radius-full: 9999px;
+
+// Shadows & Glows
+$shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+$shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.5), 0 8px 10px -6px rgba(0, 0, 0, 0.5);
+$shadow-lg: 0 20px 40px rgba(0, 0, 0, 0.7);
+
+$glow-dev: 0 0 15px rgba(139, 92, 246, 0.35);
+$glow-art: 0 0 15px rgba(6, 118, 212, 0.35);
+$glow-creativity: 0 0 15px rgba(236, 72, 153, 0.35);
+
+// Transitions
+$transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+$transition-normal: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+$transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+
+// Layout Breakpoints
+$breakpoint-mobile: 480px;
+$breakpoint-tablet: 768px;
+$breakpoint-desktop: 1024px;
+$breakpoint-widescreen: 1200px;

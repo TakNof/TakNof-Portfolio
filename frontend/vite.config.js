@@ -4,10 +4,20 @@ import path from 'path'
 
 export default defineConfig({
   plugins: [vue()],
-  base: '/TakNof-Portfolio/',
+  base: '/TakNof-Portfolio',
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),
+    }
+  },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `
+          @use "@/styles/_variables.scss" as *;
+          @use "@/styles/_mixins.scss" as *;
+        `
+      }
     }
   }
 })
