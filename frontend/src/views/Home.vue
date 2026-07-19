@@ -23,7 +23,7 @@
 
 <script setup>
 // React's `useState` is replaced by Vue's `ref`
-import { onMounted, inject, ref } from 'vue'
+import { onMounted, inject, ref, watch } from 'vue'
 import axios from 'axios';
 
 // Import components (Make sure to add the .vue extension!)
@@ -36,17 +36,15 @@ import Contact from '@/components/general/Contact.vue'
 import Footer from '@/components/general/Footer.vue'
 
 // Import your JSON (Vite handles JSON imports perfectly)
-import projectsData from '@/scripts/projectsData.json'
 const api = inject("api");
 const endpoints = inject('endpoints');
 
-// 1. Get unique categories
-const categories = [...new Set(projectsData.projects.map((p) => p.category))]
+// State management
+const projectsData = ref({ projects: [] })
+const categories = ref([])
+const activeCategory = ref('')
 
-// 2. State management (equivalent to useState)
-const activeCategory = ref(categories[0])
-
-// 3. The state updater function
+// The state updater function
 const setActiveCategory = (newCategory) => {
   activeCategory.value = newCategory // In Vue, you mutate the .value of a ref
 }
@@ -55,16 +53,58 @@ onMounted(() =>{
   loadCategories();
 })
 
-async function loadCategories(){
-  const response = await api.get(`${endpoints.CATEGORIES}`)
-  if(response.status == 200){
-    let categories = response.data;
-    for(let category in categories){
-      console.log(category);
-      // console.log(`id: ${category.id} , name: ${category.name}`);
-    }
+let loadTimeout = null;
+// Watch activeCategory and fetch projects whenever it changes with a delay for exit animation
+watch(activeCategory, (newCategory) => {
+  if (newCategory) {
+    if (loadTimeout) clearTimeout(loadTimeout);
+    loadTimeout = setTimeout(() => {
+      if(newCategory == "All"){
+        loadAllProjects();
+      }else{
+        loadProjects(newCategory);
+      }
+    }, 250); // Delay to allow the cards exit animation to complete
+  }
+})
 
-    // console.log(categories)
+async function loadAllProjects(){
+  try {
+    const response = await api.get(endpoints.PROJECTS)
+    if (response.status === 200) {
+      projectsData.value = response.data;
+    }
+  } catch (error) {
+    console.error('Error fetching projects:', error)
+  }
+}
+
+async function loadProjects(category){
+  try {
+    if (!category) return;
+    const response = await api.get(endpoints.PROJECTS, { params: { category: category } })
+    if (response.status === 200) {
+      projectsData.value = response.data;
+      console.log(`Projects fetched: ${category}`);
+      console.log(projectsData.value);
+    }
+  } catch (error) {
+    console.error('Error fetching projects:', error)
+  }
+}
+
+async function loadCategories(){
+  try{
+    const response = await api.get(`${endpoints.CATEGORIES}`)
+    if(response.status == 200){
+      categories.value = response.data;    
+      categories.value = [...categories.value, {id: 0, name: "All"}];
+      if (categories.value.length > 0 && !activeCategory.value) {
+        activeCategory.value = categories.value[0].name;
+      }
+    }
+  }catch (error){
+    console.error('Error fetching categories:', error);
   }
 }
 </script>

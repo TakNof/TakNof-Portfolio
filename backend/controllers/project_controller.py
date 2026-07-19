@@ -1,4 +1,5 @@
 # backend/controllers/project_controller.py
+from flask import request
 from flask_restx import Resource
 from dtos.projects_dto import ProjectsDto
 from dtos.categories_dto import CategoriesDto
@@ -11,19 +12,23 @@ categoriesDto = CategoriesDto.api
 
 @projectsDto.route('/')
 class ProjectList(Resource):
-    
     @projectsDto.marshal_list_with(ProjectsDto.basic_project_response)
     def get(self):
         """List all projects"""
-        # Call the dedicated queries class
-        return ProjectQueries.get_all_projects()
+        category = request.args.get('category')
+        if category:
+            # Call the dedicated queries class
+            return ProjectQueries.get_projects_by_category(category)  
+        else:
+            return ProjectQueries.get_all_projects()
+            
 
 @projectsDto.route('/<int:id>')
 @projectsDto.param('id', 'The Project identifier')
 @projectsDto.response(404, 'Project not found.')
 class ProjectDetail(Resource):
     
-    @projectsDto.marshal_with(ProjectsDto.basic_project_response)
+    @projectsDto.marshal_with(ProjectsDto.full_project_response)
     def get(self, id):
         """Get a specific project by ID"""
         project = ProjectQueries.get_project_by_id(id)

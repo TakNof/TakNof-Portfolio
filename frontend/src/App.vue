@@ -1,15 +1,14 @@
 <template>
-  <!-- <router-view /> -->
   <MainView />
 </template>
 
 <script setup>
-import { provide } from 'vue'
-import MainView from './views/MainView.vue'
+  import { provide } from 'vue'
+  import MainView from './views/MainView.vue'
 
-import api from '../utils/api'
-import { ENDPOINTS } from '../utils/endpoints'
+  import api from './utils/api.js'
+  import { ENDPOINTS } from './utils/endpoints.js'
 
-provide('api', api)
-provide('endpoints', ENDPOINTS)
+  provide('api', api)
+  provide('endpoints', ENDPOINTS)
 </script>

@@ -115,6 +115,8 @@ const goBack = () => {
 </script>
 
 <style lang="scss" scoped>
+@use "sass:color";
+
 .project-detail {
   max-width: 900px;
   margin: 3rem auto 6rem;
@@ -252,7 +254,7 @@ const goBack = () => {
   }
   
   &.active-tab {
-    background: linear-gradient(135deg, $color-dev, darken($color-dev, 10%));
+    background: linear-gradient(135deg, $color-dev, color.adjust($color-dev, $lightness: -10%));
     color: white;
     box-shadow: 0 4px 12px rgba($color-dev, 0.25);
   }

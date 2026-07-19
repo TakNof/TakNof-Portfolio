@@ -27,6 +27,8 @@
 </script>
 
 <style lang="scss" scoped>
+@use "sass:color";
+
 .hero {
   display: flex;
   flex-direction: column;
@@ -171,7 +173,7 @@
   font-size: 1.05rem;
   font-weight: 600;
   border-radius: $border-radius-md;
-  background: linear-gradient(135deg, $color-dev 0%, darken($color-dev, 10%) 100%);
+  background: linear-gradient(135deg, $color-dev 0%, color.adjust($color-dev, $lightness: -10%) 100%);
   color: white;
   box-shadow: 0 4px 20px rgba($color-dev, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.05) inset;
   transition: $transition-normal;
@@ -179,7 +181,7 @@
   cursor: pointer;
 
   &:hover {
-    background: linear-gradient(135deg, lighten($color-dev, 5%) 0%, $color-dev 100%);
+    background: linear-gradient(135deg, color.adjust($color-dev, $lightness: 5%) 0%, $color-dev 100%);
     transform: translateY(-3px);
     box-shadow: 0 10px 25px rgba($color-dev, 0.4), 0 0 15px rgba($color-art, 0.3);
   }

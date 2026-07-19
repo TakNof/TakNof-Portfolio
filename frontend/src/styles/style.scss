@@ -1,3 +1,4 @@
+@use "sass:color";
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
 
 // Resets
@@ -136,7 +137,7 @@ body::after {
   
   h2 {
     margin-bottom: 0.5rem;
-    @include text-gradient($text-primary, darken($text-primary, 20%));
+    @include text-gradient($text-primary, color.adjust($text-primary, $lightness: -20%));
   }
   
   .title-line {
@@ -165,11 +166,11 @@ body::after {
   box-shadow: $shadow-sm;
   
   &.btn-primary {
-    background: linear-gradient(135deg, $color-dev, darken($color-dev, 10%));
+    background: linear-gradient(135deg, $color-dev, color.adjust($color-dev, $lightness: -10%));
     color: white;
     
     &:hover {
-      background: linear-gradient(135deg, lighten($color-dev, 5%), $color-dev);
+      background: linear-gradient(135deg, color.adjust($color-dev, $lightness: 5%), $color-dev);
       transform: translateY(-2px);
       box-shadow: 0 0 20px rgba($color-dev, 0.4);
     }
@@ -196,11 +197,11 @@ body::after {
   }
   
   &.btn-neon-cyan {
-    background: linear-gradient(135deg, $color-art, darken($color-art, 10%));
+    background: linear-gradient(135deg, $color-art, color.adjust($color-art, $lightness: -10%));
     color: white;
     
     &:hover {
-      background: linear-gradient(135deg, lighten($color-art, 5%), $color-art);
+      background: linear-gradient(135deg, color.adjust($color-art, $lightness: 5%), $color-art);
       transform: translateY(-2px);
       box-shadow: 0 0 20px rgba($color-art, 0.4);
     }

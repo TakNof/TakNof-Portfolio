@@ -14,15 +14,19 @@ def load_ns(*args):
         
 
 def create_app():
+    # Load default .env first to populate environment variables
+    load_dotenv('.env')
+    
     flask_env = os.getenv('FLASK_ENV', 'development')
     
     if flask_env == 'production':
-        load_dotenv('.env.production')
-    else:
-        load_dotenv('.env.development')
+        load_dotenv('.env.production', override=True)
 
     app = Flask(__name__)
     
+    if flask_env == 'development':
+        app.config['DEBUG'] = True
+        
     frontend_url = os.getenv('FRONTEND_URL')
     
     CORS(app, origins=[frontend_url])

@@ -1,4 +1,5 @@
 // SCSS Mixins
+@use "sass:color";
 @use "variables" as *;
 
 // Media queries
@@ -75,12 +76,12 @@
   }
 
   &::-webkit-scrollbar-thumb {
-    background: lighten($bg-main, 10%);
+    background: color.adjust($bg-main, $lightness: 10%);
     border-radius: $border-radius-full;
     border: 2px solid $bg-main;
 
     &:hover {
-      background: lighten($bg-main, 20%);
+      background: color.adjust($bg-main, $lightness: 20%);
     }
   }
 }

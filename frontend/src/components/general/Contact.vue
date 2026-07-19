@@ -80,6 +80,8 @@ const submitForm = () => {
 </script>
 
 <style lang="scss" scoped>
+@use "sass:color";
+
 .contact-content {
   max-width: 650px;
   margin: 0 auto;
@@ -172,7 +174,7 @@ textarea {
   letter-spacing: 0.05em;
   
   &:hover {
-    background: linear-gradient(135deg, lighten($color-dev, 4%), lighten($color-art, 4%));
+    background: linear-gradient(135deg, color.adjust($color-dev, $lightness: 4%), color.adjust($color-art, $lightness: 4%));
     transform: translateY(-2px);
     box-shadow: 0 8px 25px rgba($color-dev, 0.4);
   }

@@ -16,7 +16,7 @@
       
       <div class="projects-grid" :class="{ 'fade-out-in': animate }">
         <ProjectCard 
-          v-for="(project, i) in filteredProjects" 
+          v-for="(project, i) in projects" 
           :key="project.id || i" 
           :project="project" 
         />
@@ -27,14 +27,14 @@
 
 <script setup>
 // ref (for state), computed (for derived data), watch (for side effects like useEffect)
-import { ref, computed, watch } from 'vue'
+import { ref, computed, watch, inject } from 'vue'
 
 import ProjectCategories from '@/components/specific/ProjectCategories.vue'
 import ProjectCard from '@/components/specific/ProjectCard.vue'
 
 // 1. Define the props coming from Home.vue
 const props = defineProps({
-  projects: Object,
+  projects: [Object, Array],
   categories: Array,
   activeCategory: String
 })
@@ -42,30 +42,25 @@ const props = defineProps({
 // 2. Define the events this component will emit up to Home.vue
 defineEmits(['update-category'])
 
-// 3. State for the animation
+// 3. Inject api for global isLoading state
+const api = inject('api')
+
+// 4. State for the animation
 const animate = ref(false)
 
-// 4. Computed Property: This replaces React's standard variable assignment.
-// In Vue, `computed` automatically recalculates whenever `props.activeCategory` changes.
-const filteredProjects = computed(() => {
-  if (!props.projects || !props.projects.projects) return []
-  return props.projects.projects.filter(
-    (proj) => proj.category === props.activeCategory
-  )
-})
-
-// 5. Watcher: This is the equivalent of your useEffect with [activeCategory] dependency!
-let timer = null // To hold the timeout reference
-
+// 5. Watchers: Trigger card animations
+// - Start exit animation immediately when category tab changes
 watch(() => props.activeCategory, () => {
   animate.value = true
-  
-  // Clear the previous timer in case the user clicks buttons really fast
-  if (timer) clearTimeout(timer)
-  
-  timer = setTimeout(() => {
+})
+
+// - Fade back in immediately when database request completes
+watch(() => api.isLoading.value, (loading) => {
+  if (loading) {
+    animate.value = true
+  } else {
     animate.value = false
-  }, 500)
+  }
 })
 </script>
 

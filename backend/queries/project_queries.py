@@ -8,6 +8,11 @@ class ProjectQueries:
         """Returns all projects from the database"""
         return Project.query.all()
 
+    # @staticmethod
+    # def get_projects_by_category(category_name):
+    #     """Returns all projects from the database"""
+    #     return Project.query.filter(Project.category.has(name=category_name)).all()
+
     @staticmethod
     def get_project_by_id(project_id):
         """Returns a specific project or None"""

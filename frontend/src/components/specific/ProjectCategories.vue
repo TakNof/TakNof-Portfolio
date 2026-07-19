@@ -6,22 +6,24 @@
         @click emits the custom event to the parent (Projects.vue) 
       -->
       <button
-        v-for="(cat, i) in categories"
-        :key="cat + ' ' + i"
-        @click="$emit('update-category', cat)"
+        v-for="category in categories"
+        :key="category.name + ' ' + category.id"
+        @click="$emit('update-category', category.name)"
         class="category-button"
-        :class="{ 'active-category': cat === activeCategory }"
+        :class="{ 'active-category': category.name === activeCategory }"
       >
-        {{ cat }}
+        {{ category.name }}
       </button>
     </div>
   </nav>
 </template>
 
 <script setup>
+import { onMounted } from 'vue';
+
 // 1. Define the props we receive from Projects.vue
 // Note: We DO NOT receive setActiveCategory as a prop here!
-defineProps({
+const props = defineProps({
   categories: {
     type: Array,
     required: true
@@ -32,7 +34,10 @@ defineProps({
   }
 })
 
-// 2. Declare the events this component can emit
+onMounted(() => {
+  console.log(props.categories);
+})
+
 defineEmits(['update-category'])
 </script>
 

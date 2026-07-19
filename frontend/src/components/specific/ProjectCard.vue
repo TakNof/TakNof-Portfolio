@@ -2,15 +2,15 @@
   <div class="project-card">
     <div class="image-wrapper" v-if="project.image">
       <img :src="project.image" :alt="project.title" />
-      <div class="category-badge">{{ project.category }}</div>
+      <div class="category-badge">{{ typeof project.category === 'object' && project.category !== null ? project.category.name : project.category }}</div>
     </div>
     
     <div class="card-content">
       <h3>{{ project.title }}</h3>
       
-      <div class="tech-stack">
-        <span v-for="(tech, index) in project.tech" :key="index" class="tech-badge">
-          {{ tech }}
+      <div class="tags-stack">
+        <span v-for="tag in (project.tags || [])" :key="tag.id || tag.name" class="tech-badge">
+          {{ tag.name }}
         </span>
       </div>
 
@@ -114,7 +114,7 @@ defineProps({
   }
 }
 
-.tech-stack {
+.tags-stack {
   display: flex;
   flex-wrap: wrap;
   gap: 0.4rem;

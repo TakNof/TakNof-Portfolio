@@ -15,11 +15,11 @@ class ProjectsDto:
     basic_project_response = api.inherit('BasicProject', minimal_project_response, {
         'date': fields.Date(description='Project Date'),
         'shortDesc': fields.String(attribute='short_desc', description='Short description'),
+        'image': fields.String(attribute='image_url', description='Image URL path'),
+        'video': fields.String(attribute='video_url', description='Video URL path'),
         'tags': fields.List(fields.Nested(TagsDto.tag_response))
     })
 
     full_project_response = api.inherit('FullProject', basic_project_response, {
-        'image': fields.String(attribute='image_url', description='Image URL path'),
-        'video': fields.String(attribute='video_url', description='Video URL path'),
         'info': fields.Raw(description='Detailed JSON info')
     })
