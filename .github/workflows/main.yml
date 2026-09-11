@@ -23,6 +23,14 @@ jobs:
         with:
           node-version: 22
 
+      - name: Verify backend URL
+        working-directory: ./frontend
+        env:
+          VITE_BACKEND_URL: ${{ vars.VITE_BACKEND_URL }}
+        run: |
+          test -n "$VITE_BACKEND_URL"
+          echo "VITE_BACKEND_URL=$VITE_BACKEND_URL"
+
       - name: Install and Build
         working-directory: ./frontend
         env:
