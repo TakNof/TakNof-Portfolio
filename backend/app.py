@@ -3,6 +3,7 @@ from flask import Flask
 from flask_cors import CORS
 from dotenv import load_dotenv
 import os
+from sqlalchemy import text # Import this!
 
 from extensions import db, api
 from controllers.project_controller import projectsDto as project_ns
@@ -44,6 +45,21 @@ def create_app():
 
     with app.app_context():
         db.create_all()
+
+        from models.categories import Categories
+        # If there are no categories, the DB is empty, so we seed it!
+        if not Categories.query.first():
+            print("Database is empty. Seeding from seed.sql...")
+            sql_file_path = os.path.join(basedir, 'seed.sql')
+            if os.path.exists(sql_file_path):
+                with open(sql_file_path, 'r', encoding='utf-8') as file:
+                    # Split the sql file by semicolons to execute line by line
+                    statements = file.read().split(';')
+                    for statement in statements:
+                        if statement.strip():
+                            db.session.execute(text(statement))
+                db.session.commit()
+                print("Seeding complete!")
 
     return app
 
