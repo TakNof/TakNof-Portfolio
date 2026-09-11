@@ -5,6 +5,11 @@
          Based on your structure, they are in Home. -->
     
     <!-- router-view renders Home or ProjectDetail depending on the URL -->
+    <Header/>
     <router-view />
   </div>
 </template>
+
+<script setup>
+  import Header from '@/components/general/Header.vue'
+</script>

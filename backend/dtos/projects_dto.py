@@ -1,9 +1,19 @@
 from flask_restx import Namespace, fields
 from .categories_dto import CategoriesDto
-from .tags_dto import TagsDto
+from .skills_dto import SkillsDto
+from .techs_dto import TechsDto
 
 class ProjectsDto:
     api = Namespace('projects', description='Project operations')
+
+    project_detail_response = api.model('ProjectDetailItem', {
+        'id': fields.Integer(description='Detail row ID'),
+        'order': fields.Integer(description='Display order within the project'),
+        'title': fields.String(description='Section title'),
+        'info': fields.String(description='Section body text'),
+        'url': fields.String(attribute='resource_url', description='Resource URL'),
+        'type': fields.String(attribute='resource_type', description='Resource type (image, video, link, ...)'),
+    })
 
     minimal_project_response = api.model('MinimalProject', {
         'id': fields.Integer(description='Project ID'),
@@ -17,9 +27,14 @@ class ProjectsDto:
         'shortDesc': fields.String(attribute='short_desc', description='Short description'),
         'image': fields.String(attribute='image_url', description='Image URL path'),
         'video': fields.String(attribute='video_url', description='Video URL path'),
-        'tags': fields.List(fields.Nested(TagsDto.tag_response))
+        'skills': fields.List(fields.Nested(SkillsDto.skill_response)),
+        'techs': fields.List(fields.Nested(TechsDto.tech_response))
     })
 
     full_project_response = api.inherit('FullProject', basic_project_response, {
-        'info': fields.Raw(description='Detailed JSON info')
+        'details': fields.List(
+            fields.Nested(project_detail_response),
+            attribute='details',
+            description='Ordered detail rows from the project_details table',
+        )
     })

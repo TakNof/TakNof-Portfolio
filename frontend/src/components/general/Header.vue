@@ -3,15 +3,11 @@
     <nav class="main-nav">
       <div class="logo">Alejandro Fonseca Téllez</div>
       <ul class="nav-links">
-        <!-- 
-          className becomes class.
-          Link becomes router-link.
-          I changed /home to / to match the router setup we did earlier!
-        -->
-        <li><router-link to="">Home</router-link></li>
+        <li><router-link to="/">Home</router-link></li>
         <li><router-link to="/#projects">Projects</router-link></li>
         <li><router-link to="/#about-me">About me</router-link></li>
         <li><router-link to="/#skills">Skills</router-link></li>
+        <li><router-link to="/#tech-stack">Stack</router-link></li>
         <li><router-link to="/#contact-me">Contact me</router-link></li>
       </ul>
     </nav>
@@ -50,7 +46,7 @@ header {
 
 .logo {
   font-family: $font-heading;
-  font-weight: 800;
+  font-weight: 700;
   font-size: 1.25rem;
   letter-spacing: -0.02em;
   background: linear-gradient(135deg, $color-dev 30%, $color-art 70%);
@@ -81,7 +77,7 @@ header {
   a {
     font-family: $font-heading;
     font-size: 0.95rem;
-    font-weight: 500;
+    font-weight: 600;
     color: $text-secondary;
     padding: 0.5rem 1rem;
     border-radius: $border-radius-md;

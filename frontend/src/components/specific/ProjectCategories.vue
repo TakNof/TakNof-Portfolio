@@ -45,7 +45,6 @@ defineEmits(['update-category'])
 .project-categories-nav {
   display: flex;
   justify-content: center;
-  margin-bottom: 3rem;
 }
 
 .project-categories-grid {
@@ -66,21 +65,23 @@ defineEmits(['update-category'])
   font-weight: 600;
   padding: 0.6rem 1.4rem;
   border-radius: $border-radius-full;
-  border: none;
+  border: 1px solid transparent;
   background: transparent;
-  color: $text-secondary;
+  color: $text-primary;
   cursor: pointer;
   transition: $transition-normal;
-  
+
   &:hover {
     color: $text-primary;
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(255, 255, 255, 0.06);
+    border-color: rgba(255, 255, 255, 0.08);
   }
-  
+
   &.active-category {
     background: linear-gradient(135deg, $color-dev, $color-art);
-    color: white;
-    box-shadow: 0 4px 15px rgba($color-dev, 0.25);
+    color: $bg-main;          // dark text — legible on the bright green/teal fill
+    font-weight: 700;
+    box-shadow: 0 4px 15px rgba($color-dev, 0.3);
   }
 }
 </style>

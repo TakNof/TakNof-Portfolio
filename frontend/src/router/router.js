@@ -1,4 +1,4 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 
 const MainView = () => import(/* webpackChunkName: "main" */ '@/views/MainView.vue');
 const Home = () => import(/*webpackChunkName: "home"*/ '@/views/Home.vue');
@@ -22,20 +22,22 @@ const routes = [
 ]
 
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes,
   scrollBehavior(to, from, savedPosition) {
     if (to.hash) {
-      return {
-        el: to.hash,
-        behavior: 'smooth', // This gives you the smooth animation
-        top: 80 // Optional: adds an 80px offset if you have a sticky navbar!
+      const target = document.querySelector(to.hash)
+      if (target) {
+        return {
+          top: target.getBoundingClientRect().top + window.scrollY - 80,
+          behavior: 'smooth'
+        }
       }
     }
     if (savedPosition) {
       return savedPosition
     }
-    return { top: 0 } // Scroll to top by default on page change
+    return { top: 0 }
   }
 })
 

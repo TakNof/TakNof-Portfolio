@@ -15,7 +15,7 @@
       <h3 class="category-title">{{ activeCategory }}</h3>
       
       <div class="projects-grid" :class="{ 'fade-out-in': animate }">
-        <ProjectCard 
+        <ProjectCard
           v-for="(project, i) in projects" 
           :key="project.id || i" 
           :project="project" 
@@ -65,15 +65,19 @@ watch(() => api.isLoading.value, (loading) => {
 </script>
 
 <style lang="scss" scoped>
+
+
 .projects-showcase {
-  margin-top: 3rem;
+  display: flex;
+  flex-flow: column;
+  text-align: center;
+  gap: 3.5rem;
 }
 
 .category-title {
   font-size: 1.25rem;
   font-weight: 600;
   color: $text-secondary;
-  margin-bottom: 2rem;
   text-align: left;
   border-left: 3px solid $color-dev;
   padding-left: 0.75rem;

@@ -38,7 +38,7 @@ defineProps({
   border-radius: $border-radius-full;
   font-size: 0.8rem;
   font-family: $font-mono;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.5px;
   border: 1px solid $border-color;
   box-shadow: $shadow-sm;

@@ -9,14 +9,14 @@
       <div class="profile-image-container">
         <div class="gradient-ring"></div>
         <div class="profile-inner">
-          <span class="avatar-emoji">👨‍💻</span>
+          <img class="profile-image" src="/me/Me.png" alt="">
         </div>
       </div>
       
       <div class="about-card">
         <div class="about-text">
           <p>
-            I am a **Multimedia Engineering student**, a developer driven by creativity and technical precision.
+            I am a Multimedia Engineer, a developer driven by creativity and technical precision.
             My work is positioned at the intersection of game development, web development, and software engineering.
             I love turning complex concepts into interactive, highly polished experiences—whether that means scripting
             immersive gameplay mechanics, building fluid websites, or architecting robust backend systems.
@@ -38,18 +38,35 @@
 </script>
 
 <style lang="scss" scoped>
+#about-me {
+  min-width: 50%;
+  max-width: 80vw;
+  align-self: center;
+
+  @include tablet {
+    max-width: 100%;
+  }
+}
+
 .about-content {
   display: grid;
   grid-template-columns: 280px 1fr;
   gap: 3.5rem;
   align-items: center;
-  margin-top: 2rem;
   
   @include tablet {
     grid-template-columns: 1fr;
     gap: 2.5rem;
     justify-items: center;
   }
+}
+
+.profile-image{
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1/1;
+  object-fit: contain;
+  border-radius: 50%;
 }
 
 .profile-image-container {
@@ -75,7 +92,7 @@
     width: calc(100% - 10px);
     height: calc(100% - 10px);
     border-radius: 50%;
-    background: #0f1118;
+    background: #0d1310;
     z-index: 2;
     @include flex-center;
     border: 1px solid rgba(255, 255, 255, 0.05);

@@ -28,35 +28,50 @@ import SkillCard from '@/components/specific/SkillCard.vue'
 // Since this data is static and never changes, we just use a normal array.
 // No need for ref() or reactive(), which makes it faster!
 const skills = [
-  { 
-    icon: "💻", 
-    title: "Web Development", 
-    desc: "Building responsive and interactive websites using HTML, CSS, JavaScript, and Vue/React." 
+  {
+    icon: "🔬",
+    title: "Attention to Detail",
+    desc: "Obsessive polish: I keep refining until every interaction, frame, and edge case feels right."
   },
-  { 
-    icon: "🎮", 
-    title: "Game Development", 
-    desc: "Creating engaging games with Unity, Unreal Engine, and JavaScript frameworks." 
+  {
+    icon: "📐",
+    title: "Software Architecture",
+    desc: "Planning modular, maintainable structures with clear separation of concerns before the first line of code."
   },
-  { 
-    icon: "🎬", 
-    title: "Animation", 
-    desc: "Designing smooth and appealing animations with After Effects, Autodesk Maya, and CSS." 
+  {
+    icon: "♟️",
+    title: "Calculated Decisions",
+    desc: "Weighing trade-offs deliberately and measuring before committing to an approach."
   },
-  { 
-    icon: "⚡", 
-    title: "Fast Learning", 
-    desc: "Quickly adapting to new technologies, tools, and programming languages." 
+  {
+    icon: "🧠",
+    title: "High Logic Capacity",
+    desc: "Solving complex problems with strong analytical and logical thinking skills."
   },
-  { 
-    icon: "🧠", 
-    title: "High Logic Capacity", 
-    desc: "Solving complex problems with strong analytical and logical thinking skills." 
+  {
+    icon: "🚀",
+    title: "Optimization",
+    desc: "Improving performance and efficiency in code, games, and applications."
   },
-  { 
-    icon: "🚀", 
-    title: "Optimization", 
-    desc: "Improving performance and efficiency in code, games, and applications." 
+  {
+    icon: "🧱",
+    title: "End-to-End Ownership",
+    desc: "Carrying a project from data model and backend through to a polished, deployed interface."
+  },
+  {
+    icon: "🎛️",
+    title: "Cross-disciplinary Craft",
+    desc: "Bridging engineering with 3D, audio, and design to ship complete, cohesive experiences."
+  },
+  {
+    icon: "🤝",
+    title: "Team Leadership",
+    desc: "Coordinating small development teams, scoping work, and keeping delivery on track."
+  },
+  {
+    icon: "⚡",
+    title: "Fast Learning",
+    desc: "Quickly adapting to new technologies, tools, and programming languages."
   }
 ]
 </script>
@@ -66,7 +81,6 @@ const skills = [
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 2rem;
-  margin-top: 2rem;
   
   @include tablet {
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));

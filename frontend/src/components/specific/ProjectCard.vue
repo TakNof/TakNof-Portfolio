@@ -1,16 +1,39 @@
 <template>
-  <div class="project-card">
-    <div class="image-wrapper" v-if="project.image">
-      <img :src="project.image" :alt="project.title" />
+  <div 
+    class="project-card"
+    @mouseenter="isHovered = true"
+    @mouseleave="isHovered = false"
+  >
+    <div class="image-wrapper" v-if="project.image || project.video">
+      <img 
+        v-show="!isHovered || !project.video" 
+        :src="project.image" 
+        :alt="project.title" 
+      />
+      <video 
+        v-if="isHovered && project.video"
+        :src="project.video"
+        class="hover-video"
+        muted
+        autoplay
+        loop
+        playsinline
+      ></video>
       <div class="category-badge">{{ typeof project.category === 'object' && project.category !== null ? project.category.name : project.category }}</div>
     </div>
     
     <div class="card-content">
       <h3>{{ project.title }}</h3>
       
-      <div class="tags-stack">
-        <span v-for="tag in (project.tags || [])" :key="tag.id || tag.name" class="tech-badge">
-          {{ tag.name }}
+      <div class="skills_stack">
+        <span v-for="skill in (project.skills || [])" :key="skill.id || skill.name" class="tech-badge">
+          {{ skill.name }}
+        </span>
+      </div>
+
+      <div class="techs_stack" v-if="project.techs && project.techs.length">
+        <span v-for="tech in project.techs" :key="tech.id || tech.name" class="tech-chip">
+          {{ tech.name }}
         </span>
       </div>
 
@@ -25,6 +48,8 @@
 </template>
 
 <script setup>
+import { ref } from 'vue'
+
 // Receive the single 'project' object passed from Projects.vue
 defineProps({
   project: {
@@ -32,9 +57,14 @@ defineProps({
     required: true
   }
 })
+
+const isHovered = ref(false)
 </script>
 
 <style lang="scss" scoped>
+/* NOTE: Make sure your SCSS variables ($bg-card, $border-color, etc.) 
+   are imported or globally available for this to compile! */
+
 .project-card {
   @include glass-panel($bg-card, $border-color, 12px);
   border-radius: $border-radius-lg;
@@ -49,6 +79,7 @@ defineProps({
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba($color-dev, 0.15);
     border-color: rgba($color-dev, 0.3);
     
+    /* This will still scale the image if there is NO video */
     .image-wrapper img {
       transform: scale(1.05);
     }
@@ -73,10 +104,13 @@ defineProps({
   overflow: hidden;
   border-bottom: 1px solid $border-color;
   
-  img {
+  img, .hover-video {
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+  
+  img {
     transition: $transition-slow;
   }
 }
@@ -96,6 +130,7 @@ defineProps({
   letter-spacing: 0.05em;
   padding: 0.3rem 0.8rem;
   border-radius: $border-radius-full;
+  z-index: 2; /* Ensure badge stays above the video */
 }
 
 .card-content {
@@ -114,7 +149,7 @@ defineProps({
   }
 }
 
-.tags-stack {
+.skills_stack {
   display: flex;
   flex-wrap: wrap;
   gap: 0.4rem;
@@ -129,6 +164,40 @@ defineProps({
   font-family: $font-mono;
   padding: 0.25rem 0.55rem;
   border-radius: $border-radius-sm;
+}
+
+.techs_stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.25rem;
+}
+
+.tech-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: rgba($color-dev, 0.08);
+  border: 1px solid rgba($color-dev, 0.22);
+  color: $color-dev;
+  font-size: 0.7rem;
+  font-family: $font-mono;
+  font-weight: 600;
+  padding: 0.25rem 0.55rem;
+  border-radius: $border-radius-sm;
+  transition: $transition-fast;
+
+  &::before {
+    content: '';
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: $color-dev;
+  }
+}
+
+.project-card:hover .tech-chip {
+  border-color: rgba($color-dev, 0.4);
 }
 
 .short-desc {

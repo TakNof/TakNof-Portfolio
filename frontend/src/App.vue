@@ -1,10 +1,9 @@
 <template>
-  <MainView />
+  <router-view />
 </template>
 
 <script setup>
   import { provide } from 'vue'
-  import MainView from './views/MainView.vue'
 
   import api from './utils/api.js'
   import { ENDPOINTS } from './utils/endpoints.js'

@@ -93,7 +93,6 @@ const submitForm = () => {
   color: $text-secondary;
   font-size: 1.1rem;
   line-height: 1.6;
-  margin-bottom: 3rem;
 }
 
 .contact-form {

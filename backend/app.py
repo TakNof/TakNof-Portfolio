@@ -7,6 +7,8 @@ import os
 from extensions import db, api
 from controllers.project_controller import projectsDto as project_ns
 from controllers.project_controller import categoriesDto as category_ns
+from controllers.tech_controller import techsDto as tech_ns
+from controllers.tech_controller import techBranchesDto as tech_branch_ns
 
 def load_ns(*args):
     for arg in args:
@@ -37,7 +39,7 @@ def create_app():
 
     db.init_app(app)
     api.init_app(app)
-    load_ns(project_ns, category_ns)
+    load_ns(project_ns, category_ns, tech_ns, tech_branch_ns)
     import models 
 
     with app.app_context():
