@@ -1,0 +1,1 @@
+var e=e=>!e||/^(https?:)?\/\//.test(e)||e.startsWith(`data:`)?e:`/TakNof-Portfolio/${e.replace(/^\/+/,``)}`;export{e as t};
