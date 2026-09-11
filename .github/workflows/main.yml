@@ -10,7 +10,7 @@ permissions:
 
 jobs:
   build-and-deploy:
-    environment: gh-pages
+    environment: github-pages
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
