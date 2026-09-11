@@ -43,6 +43,7 @@
 
 <script setup>
 import { ref, computed } from 'vue'
+import { assetUrl } from '@/utils/assetUrl'
 
 const props = defineProps({
   tech: { type: Object, required: true }
@@ -61,7 +62,7 @@ const slug = computed(() =>
     .replace(/(^-|-$)/g, '')
 )
 
-const logoUrl = computed(() => `/img/techs/${slug.value}.png`)
+const logoUrl = computed(() => assetUrl(`/img/techs/${slug.value}.png`))
 
 const initials = computed(() =>
   props.tech.name

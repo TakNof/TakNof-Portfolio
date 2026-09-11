@@ -18,7 +18,7 @@
         <video
           v-if="projectInfo.video"
           ref="videoRef"
-          :src="projectInfo.video"
+          :src="assetUrl(projectInfo.video)"
           autoplay
           loop
           muted
@@ -28,7 +28,7 @@
         ></video>
         <img
           v-else-if="projectInfo.image"
-          :src="projectInfo.image"
+          :src="assetUrl(projectInfo.image)"
           :alt="projectInfo.title"
         />
       </div>
@@ -107,14 +107,14 @@
             >
               <video
                 v-if="block.type === 'video'"
-                :src="block.url"
+                :src="assetUrl(block.url)"
                 controls
                 playsinline
                 preload="metadata"
               ></video>
               <img
                 v-else
-                :src="block.url"
+                :src="assetUrl(block.url)"
                 :alt="block.title || projectInfo.title"
                 loading="lazy"
               />
@@ -142,14 +142,14 @@
           <div class="media-modal-content">
             <video
               v-if="expandedMedia.type === 'video'"
-              :src="expandedMedia.url"
+              :src="assetUrl(expandedMedia.url)"
               controls
               autoplay
               playsinline
             ></video>
             <img
               v-else
-              :src="expandedMedia.url"
+              :src="assetUrl(expandedMedia.url)"
               :alt="expandedMedia.title || projectInfo.title"
             />
             <p v-if="expandedMedia.title" class="media-modal-title">{{ expandedMedia.title }}</p>
@@ -163,6 +163,7 @@
 <script setup>
 import { onMounted, onUnmounted, inject, ref, computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
+import { assetUrl } from '@/utils/assetUrl'
 
 import Header from '@/components/general/Header.vue'
 

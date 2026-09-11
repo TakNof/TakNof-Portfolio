@@ -14,7 +14,7 @@
         >
           <video
             v-if="current.video"
-            :src="current.video"
+            :src="assetUrl(current.video)"
             :aria-label="current.title"
             class="slide-media"
             autoplay
@@ -24,7 +24,7 @@
           ></video>
           <img
             v-else-if="current.image"
-            :src="current.image"
+            :src="assetUrl(current.image)"
             :alt="current.title"
             class="slide-media"
             draggable="false"
@@ -86,6 +86,7 @@
 
 <script setup>
 import { ref, computed, onMounted, onUnmounted } from 'vue'
+import { assetUrl } from '@/utils/assetUrl'
 
 const props = defineProps({
   projects: { type: Array, default: () => [] },

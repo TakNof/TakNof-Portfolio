@@ -1,3 +1,7 @@
+<script setup>
+import { assetUrl } from '@/utils/assetUrl'
+</script>
+
 <template>
   <section id="about-me" class="section">
     <div class="section-title">
@@ -9,7 +13,7 @@
       <div class="profile-image-container">
         <div class="gradient-ring"></div>
         <div class="profile-inner">
-          <img class="profile-image" src="/me/Me.png" alt="">
+          <img class="profile-image" :src="assetUrl('/me/Me.png')" alt="">
         </div>
       </div>
       
@@ -32,10 +36,6 @@
     </div>
   </section>
 </template>
-
-<script setup>
-// This component is purely presentational, so the script setup stays empty!
-</script>
 
 <style lang="scss" scoped>
 #about-me {

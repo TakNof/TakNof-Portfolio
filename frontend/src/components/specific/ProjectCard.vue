@@ -7,12 +7,12 @@
     <div class="image-wrapper" v-if="project.image || project.video">
       <img 
         v-show="!isHovered || !project.video" 
-        :src="project.image" 
+        :src="assetUrl(project.image)" 
         :alt="project.title" 
       />
       <video 
         v-if="isHovered && project.video"
-        :src="project.video"
+        :src="assetUrl(project.video)"
         class="hover-video"
         muted
         autoplay
@@ -49,6 +49,7 @@
 
 <script setup>
 import { ref } from 'vue'
+import { assetUrl } from '@/utils/assetUrl'
 
 // Receive the single 'project' object passed from Projects.vue
 defineProps({
