@@ -1,0 +1,1 @@
+import{S as e,b as t,h as n,p as r}from"./index-m3LH4grK.js";import{t as i}from"./Header-BFTsSCki.js";var a={class:`main-layout`},o={__name:`MainView`,setup(o){return(o,s)=>{let c=e(`router-view`);return t(),r(`div`,a,[n(i),n(c)])}}};export{o as default};

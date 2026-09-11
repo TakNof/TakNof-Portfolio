@@ -1,1 +1,0 @@
-import{S as e,b as t,h as n,p as r}from"./index-CRZmfTzj.js";import{t as i}from"./Header-Dp02QUh4.js";var a={class:`main-layout`},o={__name:`MainView`,setup(o){return(o,s)=>{let c=e(`router-view`);return t(),r(`div`,a,[n(i),n(c)])}}};export{o as default};
